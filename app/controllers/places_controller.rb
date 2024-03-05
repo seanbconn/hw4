@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
      @place["name"] = params["name"]
      @place.save
     else 
-      flash["notice"] = "Login to view this content"
+      flash["notice"] = "Login to view this content."
     end
     redirect_to "/places"
   end
