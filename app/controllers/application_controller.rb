@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user = User.find_by({ "id" => session["user_id"] })
-    puts "Welcome to your Gram"
+    puts "Welcome to your Travel Gram"
   end
 end

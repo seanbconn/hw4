@@ -21,7 +21,7 @@ def create
 end
 
 def destroy
-  flash["notice"] = "Goodbye."
+  flash["notice"] = "Goodbye, #{@user["username"]}."
   session["user_id"] = nil
   redirect_to "/login"
 end
