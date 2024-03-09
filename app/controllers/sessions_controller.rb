@@ -8,7 +8,7 @@ def create
   if @user != nil
     if BCrypt::Password.new(@user["password"]) == params["password"]
       session["user_id"] = @user["id"]
-      flash["notice"] = "Welcome, #{@user["first_name"]}."
+      flash["notice"] = "Welcome, #{@user["username"]}."
       redirect_to "/places"
     else
       flash["notice"] = "That email and password combination was not recognized. Try again."
