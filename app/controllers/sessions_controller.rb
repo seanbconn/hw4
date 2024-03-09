@@ -11,7 +11,7 @@ def create
       # add a cookie for this login
       # cookies["user_id"] = @user["id"], but session more secure
       session["user_id"] = @user["id"]
-      flash["notice"] = "Welcome, #{@user["username"]}."
+      flash["notice"] = "Have fun saving your places and creating location based entries!"
       redirect_to "/places"
     else
       flash["notice"] = "That email and password combination was not recognized. Try again."
