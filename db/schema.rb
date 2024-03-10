@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.1].define(version: 2022_03_09_020701) do
   create_table "entries", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.string "image"
     t.date "occurred_on"
     t.integer "place_id"
     t.integer "user_id"

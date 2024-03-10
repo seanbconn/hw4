@@ -3,24 +3,25 @@
 <% if @user != nil %>
 
   <form action="/entries" method="post">
-    <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
+    <div class="mb-2">
+      <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
+      <ul class = "vertical list">
+        <li class = "vertical item">
+          <label for="title_input">Title</label>
+          <input type="text" name="title" id="title_input" class="form-control">
+        <li class = "vertical item">
+          <label for="occurred_on_input">Occurred On</label>
+          <input type="date" name="occurred_on" id="occurred_on_input">
+        <li class = "vertical item">
+          <label for="image_input" class="form-label">Image URL</label>
+          <input type="text" name="image" id="image_input" class="form-control">
+        <li class = "vertical item">
+          <label for="description_input">Description</label>
+          <input type="text" name="description" id="description_input" class="form-control">
+    </ul>
+    </div>
 
-    <p>
-      <label for="title_input">Title</label>
-      <input type="text" name="title" id="title_input">
-    </p>
-
-    <p>
-      <label for="description_input">Description</label>
-      <input type="text" name="description" id="description_input">
-    </p>
-
-    <p>
-      <label for="occurred_on_input">Occurred On</label>
-      <input type="date" name="occurred_on" id="occurred_on_input">
-    </p>
-
-    <button>Save</button>
+    <button class="btn btn-primary">Save</button>
     <a href="/places">Cancel</a>
   </form>
 <% else %>
