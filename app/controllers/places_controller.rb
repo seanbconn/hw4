@@ -22,7 +22,6 @@ class PlacesController < ApplicationController
     if @user !=nil
      @place = Place.new
      @place["name"] = params["name"]
-     @place["user_id"] = session["user_id"]
      @place.save
     else 
       flash["notice"] = "Login to view this content."

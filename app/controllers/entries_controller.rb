@@ -1,9 +1,11 @@
 class EntriesController < ApplicationController
-  if User.find_by({"id" => session["user_id"]}) != nil
     def new
+      @user = User.find_by({ "id" => session["user_id"] })
     end
 
     def create
+      @user = User.find_by({ "id" => session["user_id"] })
+    if @user != nil
       @entry = Entry.new
       @entry["title"] = params["title"]
       @entry["description"] = params["description"]
@@ -11,11 +13,9 @@ class EntriesController < ApplicationController
       @entry["place_id"] = params["place_id"]
       @entry["user_id"] = session["user_id"]
       @entry.save
-      redirect_to "/places/#{@entry["place_id"]}"
-  else
-    flash["notice"] = "Login to create content."
+    else
+      flash["notice"] = "Login to create content."
+    end
     redirect_to "/login"
-      end 
-  end
-
+  end 
 end
