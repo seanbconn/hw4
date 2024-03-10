@@ -1,15 +1,13 @@
 class SessionsController < ApplicationController
 # Should this code include "user_id" or "email"?
 def new
+  render :template => "sessions/new"
 end
 
 def create
   @user = User.find_by({ "email" => params["email"] })
   if @user != nil
     if BCrypt::Password.new(@user["password"]) == params["password"]
-
-      # add a cookie for this login
-      # cookies["user_id"] = @user["id"], but session more secure
       session["user_id"] = @user["id"]
       flash["notice"] = "Have fun saving your places and creating location based entries!"
       redirect_to "/places"

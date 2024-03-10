@@ -23,7 +23,7 @@
   </head>
 
   <body>
-    <div>
+    <div class="container">
       <p>
         <% @user = User.find_by({"id" => session["user_id"]}) %>
         <% if @user == nil %>
